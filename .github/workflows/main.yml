@@ -31,8 +31,8 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/my-docker-app-image:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest .
 
       # Push the Docker image
       - name: Push Docker Image
-        run: docker push ${{ secrets.DOCKER_USERNAME }}/my-docker-app-image:latest
+        run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest
