@@ -1,17 +1,16 @@
-
 name: Build and Push Docker Image
 
 on:
   push:
     branches:
-      - main  
+      - main
   pull_request:
     branches:
       - main
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       # Checkout the repository to access Dockerfile
@@ -36,3 +35,6 @@ jobs:
       # Push the Docker image
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest
+
+      - name: Make POST Curl Request to Deploy
+        run: curl -X POST http://${{ secrets.DEPLOY_IP }}/deploy
