@@ -37,4 +37,4 @@ jobs:
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest
 
       - name: Make POST Curl Request to Deploy
-        run: curl -X POST http://${{ secrets.DEPLOY_IP }}:3008/deploy
+        run: curl -X POST http://${{ secrets.DEPLOY_IP }}/deploy
