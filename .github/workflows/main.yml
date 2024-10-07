@@ -30,11 +30,11 @@ jobs:
 
       # Build the Docker image
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest --platform linux/amd64 .
 
       # Push the Docker image
       - name: Push Docker Image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/github-actions-app-image:latest
 
       - name: Make POST Curl Request to Deploy
-        run: curl -X POST http://${{ secrets.DEPLOY_IP }}/deploy
+        run: curl -X POST http://${{ secrets.DEPLOY_IP }}:3008/deploy

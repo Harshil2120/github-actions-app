@@ -26,11 +26,10 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Version 1.8
+            Version 2.8
           </a>
         </div>
       </main>
-      
     </div>
   );
 }
